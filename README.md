@@ -126,5 +126,3 @@ Este proyecto utiliza la **PokéAPI** bajo licencia abierta para uso educativo y
 Pokémon y sus elementos visuales son propiedad de **The Pokémon Company**.
 
 ---
-
-¿Quieres que te genere también una **versión en inglés del README** para tu portafolio bilingüe?
