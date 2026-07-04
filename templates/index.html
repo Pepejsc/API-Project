@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeApp</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='pokeball.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Busca tu Pokémon</h1>
+    <form method="POST">
+        <input type="text" name="pokemon" placeholder="Ingresa nombre del Pokémon">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if pokemon %}
+        <div class="cards-container">
+            <div class="pokemon-card">
+                <h2>{{ pokemon.name | capitalize }}</h2>
+                <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
+            </div>
+
+            <div class="info-card">
+                <h3>Tipos</h3>
+                <p>{{ pokemon.types | join(", ") }}</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Movimientos</h3>
+                <div class="moves-list">
+                    {% for move in pokemon.moves %}
+                        <span class="move-chip">{{ move }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>
